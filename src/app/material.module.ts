@@ -6,7 +6,8 @@ import {
     MatCheckboxModule,
     MatChipsModule,
     MatToolbarModule,
-    MatListModule
+    MatListModule,
+    MatGridListModule
   // and so on...
 } from "@angular/material";
 
@@ -16,7 +17,8 @@ const MAT_MODULES  = [
     MatCheckboxModule,
     MatChipsModule,
     MatToolbarModule,
-    MatListModule
+    MatListModule,
+    MatGridListModule
   // and so on...
 ];
 
