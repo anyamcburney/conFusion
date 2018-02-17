@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import 'hammerjs';
 import { MenuComponent } from './menu/menu.component';
 import { DishdetailComponent, ValuesPipe } from './menu/dishdetail/dishdetail.component'
+import { DishService } from './services/dish.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +26,7 @@ import { DishdetailComponent, ValuesPipe } from './menu/dishdetail/dishdetail.co
     FlexLayoutModule
 
   ],
-  providers: [],
+  providers:  [DishService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
