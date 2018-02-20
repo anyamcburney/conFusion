@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Pipe, PipeTransform } from '@angular/core';
-import {Dish} from '../../shared/dish'
+import {Dish} from '../shared/dish'
 
 @Pipe({ name: 'values',  pure: false })
 export class ValuesPipe implements PipeTransform {
