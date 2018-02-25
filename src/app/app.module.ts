@@ -18,8 +18,10 @@ import { ContactComponent } from './contact/contact.component';
 
 import { DishService } from './services/dish.service';
 import { PromotionService } from './services/promotion.service';
+import { LeaderService } from './services/leader.service';
 
-import {AppRoutingModule} from './app-routing/app-routing.module'
+import {AppRoutingModule} from './app-routing/app-routing.module';
+import { LoginComponent } from './login/login.component'
 
 
 
@@ -33,7 +35,8 @@ import {AppRoutingModule} from './app-routing/app-routing.module'
     FooterComponent,
     AboutComponent,
     HomeComponent,
-    ContactComponent
+    ContactComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -41,11 +44,16 @@ import {AppRoutingModule} from './app-routing/app-routing.module'
     HttpModule,
     MaterialModule,
     FlexLayoutModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
 
   ],
   providers:  [DishService,
-    PromotionService],
-  bootstrap: [AppComponent]
+    PromotionService,
+    LeaderService],
+  bootstrap: [AppComponent],
+  entryComponents: [
+    LoginComponent
+],
 })
 export class AppModule { }
