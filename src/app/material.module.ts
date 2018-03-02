@@ -12,7 +12,8 @@ import {
     MatInputModule,
     MatDialogModule,
     MatSelectModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatProgressSpinnerModule
   // and so on...
 } from "@angular/material";
 
@@ -28,7 +29,8 @@ const MAT_MODULES  = [
     MatInputModule,
     MatDialogModule,
     MatSelectModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatProgressSpinnerModule
   // and so on...
 ];
 
