@@ -37,9 +37,35 @@
         <mat-list-item *ngFor="let item of dish.comments">
             <p matLine>{{item.comment}}</p>   
             <p matLine>{{item.rating}}</p>
-            <p matLine>{{item.author}} {{item.date | date}}</p>
+            <p matLine>-- {{item.author}} {{item.date | date}}</p>
          </mat-list-item>
-       </mat-list>
-  </div>
-
+    </mat-list>
+    <!--<p>{{ commentForm.value | json }} {{ commentForm.valid }}</p>-->
+    <form  *ngIf="dish" novalidate [formGroup]="commentForm" (ngSubmit)="onSubmit()">
+            <p>
+                <mat-input-container class="half-width"
+                    dividerColor="{{(formErrors.author) ? 'warn' : 'primary'}}">
+                    <input matInput formControlName="author" placeholder="Name" type="text" required>
+                    <mat-hint>
+                        <span [hidden]="!(formErrors.author)">
+                        {{formErrors.author}}</span>
+                    </mat-hint>
+                </mat-input-container>
+            </p>
+            <p>
+                <mat-slider min="1" max="5" step="1"  tickInterval = "1" formControlName="rating"></mat-slider>
+            </p>
+            <p>
+                <mat-input-container class="full-width"
+                    dividerColor="{{(formErrors.comment) ? 'warn' : 'primary'}}">
+                    <textarea matInput formControlName="comment" placeholder="Your Comment" rows=3 required></textarea>
+                    <mat-hint>
+                        <span [hidden]="!(formErrors.comment)">
+                        {{formErrors.comment}}</span>
+                    </mat-hint>
+                </mat-input-container>
+            </p>
+            <button type="submit" mat-button class="background-primary text-floral-white" [disabled]="commentForm.invalid">Submit</button>
+    </form>   
+  </div>   
 </div>
