@@ -23,6 +23,8 @@ import { LeaderService } from './services/leader.service';
 
 import {AppRoutingModule} from './app-routing/app-routing.module';
 import { LoginComponent } from './login/login.component'
+import { baseURL } from './shared/baseurl';
+import { ProcessHTTPMsgService } from './services/process-httpmsg.service';
 
 
 
@@ -52,7 +54,9 @@ import { LoginComponent } from './login/login.component'
   ],
   providers:  [DishService,
     PromotionService,
-    LeaderService],
+    LeaderService,
+    {provide: 'BaseURL', useValue: baseURL},
+    ProcessHTTPMsgService],
   bootstrap: [AppComponent],
   entryComponents: [
     LoginComponent
