@@ -6,6 +6,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {HttpModule} from "@angular/http"
 import {MaterialModule} from './material.module'
 import {FlexLayoutModule} from "@angular/flex-layout"
+import { RestangularModule, Restangular } from 'ngx-restangular';
+import { RestangularConfigFactory } from './shared/restConfig';
 
 import 'hammerjs';
 import { AppComponent } from './app.component';
@@ -49,7 +51,8 @@ import { ProcessHTTPMsgService } from './services/process-httpmsg.service';
     FlexLayoutModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RestangularModule.forRoot(RestangularConfigFactory)
 
   ],
   providers:  [DishService,
