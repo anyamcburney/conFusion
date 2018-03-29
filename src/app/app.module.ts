@@ -27,6 +27,7 @@ import {AppRoutingModule} from './app-routing/app-routing.module';
 import { LoginComponent } from './login/login.component'
 import { baseURL } from './shared/baseurl';
 import { ProcessHTTPMsgService } from './services/process-httpmsg.service';
+import { HighlightDirective } from './directives/highlight.directive';
 
 
 
@@ -41,7 +42,8 @@ import { ProcessHTTPMsgService } from './services/process-httpmsg.service';
     AboutComponent,
     HomeComponent,
     ContactComponent,
-    LoginComponent
+    LoginComponent,
+    HighlightDirective
   ],
   imports: [
     BrowserModule,
