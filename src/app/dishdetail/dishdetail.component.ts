@@ -6,7 +6,7 @@ import { Params, ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import 'rxjs/add/operator/switchMap';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
-import { trigger, state, style, animate, transition } from '@angular/animations';
+import { visibility, flyInOut, expand } from '../animations/app.animation';
 
 @Pipe({ name: 'values',  pure: false })
 export class ValuesPipe implements PipeTransform {
@@ -20,18 +20,14 @@ export class ValuesPipe implements PipeTransform {
   templateUrl: './dishdetail.component.html',
   styleUrls: ['./dishdetail.component.scss'],
   animations: [
-    trigger('visibility', [
-        state('shown', style({
-            transform: 'scale(1.0)',
-            opacity: 1
-        })),
-        state('hidden', style({
-            transform: 'scale(0.5)',
-            opacity: 0
-        })),
-        transition('* => *', animate('0.5s ease-in-out'))
-    ])
-  ]
+    visibility(),
+    flyInOut(),
+    expand()
+  ],
+  host: {
+    '[@flyInOut]': 'true',
+    'style': 'display: block;'
+    }
 })
 export class DishdetailComponent implements OnInit {
   errMess: string;
@@ -74,7 +70,7 @@ export class DishdetailComponent implements OnInit {
     this.dishservice.getDishIds()
       .subscribe(dishIds => this.dishIds = dishIds,
           errmess => this.errMess = <any>errmess);
-          
+
      this.route.params
           .switchMap((params: Params) => { this.visibility = 'hidden'; return this.dishservice.getDish(+params['id']); })
           .subscribe(dish => { this.dish = dish; this.dishcopy = dish; this.setPrevNext(dish.id); this.visibility = 'shown'; },
