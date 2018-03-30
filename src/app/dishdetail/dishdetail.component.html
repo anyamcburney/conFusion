@@ -7,7 +7,7 @@
     fxLayoutGap.xs="0">
 
   <div fxFlex="40">
-      <div fxFlex *ngIf="dish">
+      <div fxFlex *ngIf="dish" [@visibility]="visibility">
           <mat-card>
             <mat-card-header>
                 <mat-card-title>
@@ -28,10 +28,13 @@
             </mat-card-actions>
           </mat-card>
        </div>
-  </div>
+  
+  
+  
+    </div>
 
-  <div fxFlex="40">
-    <mat-list *ngIf="dish">
+  <div fxFlex="40" *ngIf="dish" [@visibility]="visibility">
+    <mat-list >
         <h1>Comments</h1>
         <hr>
         <mat-list-item *ngFor="let item of dish.comments">
@@ -41,7 +44,7 @@
          </mat-list-item>
     </mat-list>
     <!--<p>{{ commentForm.value | json }} {{ commentForm.valid }}</p>-->
-    <form  *ngIf="dish" novalidate [formGroup]="commentForm" (ngSubmit)="onSubmit()">
+    <form  novalidate [formGroup]="commentForm" (ngSubmit)="onSubmit()" >
             <p>
                 <mat-input-container class="half-width"
                     dividerColor="{{(formErrors.author) ? 'warn' : 'primary'}}">
